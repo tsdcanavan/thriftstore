@@ -1,2 +1,2 @@
-# thriftstore
-project 2 thrift store
+# SellYourStuff
+Project1
