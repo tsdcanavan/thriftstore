@@ -1,0 +1,23 @@
+{
+  "name": "thriftstore",
+  "version": "0.2.0",
+  "description": "Thrift Store Buy and Sell",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsdcanavan/thriftstore.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tsdcanavan/thriftstore/issues"
+  },
+  "homepage": "https://github.com/tsdcanavan/thriftstore#readme",
+  "dependencies": {
+    "credit-card-validator": "^1.0.8",
+    "sequelize": "^4.22.4"
+  }
+}
