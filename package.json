@@ -17,7 +17,10 @@
   },
   "homepage": "https://github.com/tsdcanavan/thriftstore#readme",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "credit-card-validator": "^1.0.8",
+    "express": "^4.16.2",
+    "mysql2": "^1.4.2",
     "sequelize": "^4.22.4"
   }
 }
