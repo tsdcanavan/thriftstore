@@ -18,6 +18,9 @@ module.exports = function(sequelize, DataTypes) {
     },
     category: {
       type: DataTypes.STRING
+    },
+    status: {
+      type: DataTypes.STRING
     }
   }, {
     timestamps: false
