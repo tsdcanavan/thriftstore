@@ -2,48 +2,60 @@
     // Create thriftstore tables DB
     var Usertbl = sequelize.define("usertbl", {
       username: {
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
         allownull: false
       },
       email: {
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
         allownull: false
       },
       address1: {
-        type: Sequelize.STRING
+        type: DataTypes.STRING
       },
       address2: {
-        type: Sequelize.STRING
+        type: DataTypes.STRING
       },
       city: {
-        type: Sequelize.STRING
+        type: DataTypes.STRING
       },
       state: {
-        type: Sequelize.STRING
+        type: DataTypes.STRING
       },
       zip: {
-        type: Sequelize.STRING
+        type: DataTypes.STRING
       },
       password: {
-        type: Sequelize.PASSWORD,
+        type: DataTypes.STRING,
         allownull: false
       },
       rating: {
-        type: Sequelize.STRING
+        type: DataTypes.STRING
       }, 
       buyer: {
-        type: Sequelize.BOOLEAN
+        type: DataTypes.BOOLEAN
       },
       seller: {
-        type: Sequelize.BOOLEAN
+        type: DataTypes.BOOLEAN
       },
       admin: {
-        type: Sequelize.BOOLEAN
+        type: DataTypes.BOOLEAN
       }
     }, {
       timestamps: false
     });
     
+    Usertbl.associate = function(models) {
+      Usertbl.hasMany(models.credittbl, {
+        onDelete: "cascade"
+        })
+      };
+    Usertbl.associate = function(models) {
+        Usertbl.hasMany(models.merchtbl, {
+          onDelete: "cascade"
+          })
+        };
+      
+     
       return Usertbl;
     };
   

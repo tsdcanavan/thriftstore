@@ -1,42 +1,39 @@
 module.exports = function(sequelize, DataTypes) {
     var Merchtbl = sequelize.define("merchtbl", {
     userid: {
-      type: Sequelize.INTEGER
+      type: DataTypes.INTEGER
     },
     title: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
       allownull: false
     },
     description: {
-      type: Sequelize.STRING
+      type: DataTypes.STRING
     },
     photolink: {
-      type: Sequelize.STRING
+      type: DataTypes.STRING
     },
     price: {
-      type: Sequelize.INTEGER
+      type: DataTypes.INTEGER
     },
     category: {
-      type: Sequelize.STRING
+      type: DataTypes.STRING
     }
   }, {
     timestamps: false
   });
   
   Merchtbl.associate = function(models) {
-    // We're saying that a Post should belong to an Author
-    // A Post can't be created without an Author due to the foreign key constraint
-    Merchtbl.belongsTo(models.Usertbl, {
+    Merchtbl.belongsTo(models.usertbl, {
       foreignKey: {
         allowNull: false
       }
     }),
-        Merchtbl.belongsTo(models.Categorytbl, {
+        Merchtbl.belongsTo(models.categorytbl, {
             foreignKey: {
                 allowNull: false
             }
         })
-    }
-}; 
-  return Credittbl;
-});
+    } 
+  return Merchtbl;
+};

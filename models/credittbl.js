@@ -1,23 +1,23 @@
 module.exports = function(sequelize, DataTypes) {
 var Credittbl = sequelize.define("credittbl", {
     userid: {
-      type: Sequelize.INTEGER
+      type: DataTypes.INTEGER
     },
     ccnumber: {
-      type: Sequelize.BIGINT
+      type: DataTypes.BIGINT
     },
     ccexp: {
-      type: Sequelize.INTEGER
+      type: DataTypes.INTEGER
     },
     cccode: {
-      type: Sequelize.INTEGER
+      type: DataTypes.INTEGER
     },
     ccname: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
       allownull: false
     },
     cczip: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
       allownull: false
     }
   }, {
@@ -25,9 +25,7 @@ var Credittbl = sequelize.define("credittbl", {
   });
 
     Credittbl.associate = function(models) {
-      // We're saying that a Post should belong to an Author
-      // A Post can't be created without an Author due to the foreign key constraint
-      Credittbl.belongsTo(models.Usertbl, {
+      Credittbl.belongsTo(models.usertbl, {
         foreignKey: {
           allowNull: false
         }

@@ -1,18 +1,25 @@
 module.exports = function(sequelize, DataTypes) {
     var Categorytbl = sequelize.define("categorytbl", {
     primarycat: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
       allownull: false
     },
     secondarycat: {
-      type: Sequelize.STRING
+      type: DataTypes.STRING
     },
     tertiarycat: {
-      type: Sequelize.STRING
+      type: DataTypes.STRING
     }
   }, {
     timestamps: false
   });
 
-  return Credittbl;
+  Categorytbl.associate = function(models) {
+    Categorytbl.hasMany(models.merchtbl, {
+      onDelete: "cascade"
+    });
+    };
+  
+
+  return Categorytbl;
 };
