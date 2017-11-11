@@ -1,2 +1,2 @@
-# SellYourStuff
+#  THRIFTSTORE - VERETES
 Project1
