@@ -20,7 +20,7 @@ module.exports = function(app) {
     // They won't get this or even be able to access this page if they aren't authed
     console.log(req.body)
     //edit the members route to 
-    res.redirect("https://google.com");
+    res.json(true);
   });
 
   // GET route for getting all of the posts
@@ -92,7 +92,8 @@ module.exports = function(app) {
       email: req.body.email,
       password: req.body.password
     }).then(function() {
-      res.redirect(307, "/api/login");
+      res.json(true)
+      // res.redirect(307, "/api/login");
     }).catch(function(err) {
       console.log(err);
       res.json(err);

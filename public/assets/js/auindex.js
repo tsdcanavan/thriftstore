@@ -104,10 +104,9 @@ var LoginModalController = {
 
 $(document).ready(function() {
     LoginModalController.initialize();
-
-    var loginForm = $("form.simform");
-    var emailInput = $("input#user-email");
-    var passwordInput = $("input#user-pw");
+    var loginForm = $("form#login-form");
+    var emailInput = $("input#login-email");
+    var passwordInput = $("input#login-pw");
   
     // When the form is submitted, we validate there's an email and password entered
     loginForm.on("submit", function(event) {
@@ -117,6 +116,7 @@ $(document).ready(function() {
         email: emailInput.val().trim(),
         password: passwordInput.val().trim()
       };
+      console.log("userData ", userData);
   
       if (!userData.email || !userData.password) {
         return;
