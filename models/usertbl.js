@@ -37,13 +37,16 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.STRING
       }, 
       buyer: {
-        type: DataTypes.BOOLEAN
+        type: DataTypes.BOOLEAN,
+        default: 1
       },
       seller: {
-        type: DataTypes.BOOLEAN
+        type: DataTypes.BOOLEAN,
+        default: 0
       },
       admin: {
-        type: DataTypes.BOOLEAN
+        type: DataTypes.BOOLEAN,
+        default: 0
       }
     }, {
       timestamps: false
