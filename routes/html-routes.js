@@ -15,10 +15,11 @@ module.exports = function(app) {
 
   app.get("/login", function(req, res) {
     // If the user already has an account send them to the members page
+    console.log(req.user);
     if (req.user) {
       res.redirect("https://google.com");
     }
-    res.sendFile(path.join(__dirname, "../public/authenticate/auth.html"));
+    res.sendFile(path.join(__dirname, "../public/auth.html"));
   });
 
   app.get("/api/signup", function(req, res) {
@@ -26,7 +27,7 @@ module.exports = function(app) {
     if (req.user) {
       res.redirect("/:id");
     }
-    res.sendFile(path.join(__dirname, "../public/authenticate/auth.html"));
+    res.sendFile(path.join(__dirname, "../public/auth.html"));
   });
 
 
