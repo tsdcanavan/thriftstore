@@ -14,7 +14,7 @@ html {
   bottom: 0;
   left: 0;
   opacity: 1;
-  background: rgba(0, 0, 0, 0.2);
+  background: url("https://d262ilb51hltx0.cloudfront.net/fit/c/1600/1280/gradv/29/81/60/darken/25/1*4ncz3hLxmL8E_bUh-0z62w.jpeg") no-repeat scroll 0% 0% transparent;
   z-index: 1;
 }
 .logmod::after {
