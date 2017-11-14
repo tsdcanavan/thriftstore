@@ -17,7 +17,7 @@ module.exports = function(app) {
     // If the user already has an account send them to the members page
     console.log(req.user);
     if (req.user) {
-      res.redirect("https://google.com");
+      res.json("https://google.com");
     }
     res.sendFile(path.join(__dirname, "../public/auth.html"));
   });

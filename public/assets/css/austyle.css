@@ -1,5 +1,7 @@
 html {
   box-sizing: border-box;
+  background-image: url("https://d262ilb51hltx0.cloudfront.net/fit/c/1600/1280/gradv/29/81/60/darken/25/1*4ncz3hLxmL8E_bUh-0z62w.jpeg");
+  background-repeat: repeat-x; 
 }
 
 *, *:before, *:after {
@@ -8,13 +10,13 @@ html {
 
 .logmod {
   display: block;
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   opacity: 1;
-  background: url("https://d262ilb51hltx0.cloudfront.net/fit/c/1600/1280/gradv/29/81/60/darken/25/1*4ncz3hLxmL8E_bUh-0z62w.jpeg") no-repeat scroll 0% 0% transparent;
+  /* background: url("https://d262ilb51hltx0.cloudfront.net/fit/c/1600/1280/gradv/29/81/60/darken/25/1*4ncz3hLxmL8E_bUh-0z62w.jpeg") repeat-x; */
   z-index: 1;
 }
 .logmod::after {
@@ -29,13 +31,12 @@ html {
   max-width: 550px;
   border-radius: 4px;
   box-shadow: 0 0 18px rgba(0, 0, 0, 0.2);
-  margin: 10px auto;
+  margin: 15px auto;
 }
 .logmod__close {
   display: block;
   position: absolute;
   right: 50%;
-  background: url("http://imgh.us/close_white.svg") no-repeat scroll 0% 0% transparent;
   text-indent: 100%;
   white-space: nowrap;
   overflow: hidden;
