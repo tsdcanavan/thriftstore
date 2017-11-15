@@ -1,7 +1,7 @@
 body {
   font-size: 14px;
   font-family: Sans-Serif;
-  
+  background-image: url('https://d262ilb51hltx0.cloudfront.net/fit/c/1600/1280/gradv/29/81/60/darken/25/1*4ncz3hLxmL8E_bUh-0z62w.jpeg');
 }
 
 * {
@@ -146,4 +146,13 @@ nav ul li a:hover {
   position: relative;
   bottom: -160px;
   border-top: none;
+}
+
+#loginLink {
+  align: right;
+
+}
+
+p {
+    color: white;
 }
