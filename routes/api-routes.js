@@ -11,7 +11,6 @@ var passport = require("../config/passport");
 // Routes =============================================================
 module.exports = function(app) {
 
-<<<<<<< HEAD
 
   app.post("/login", passport.authenticate("local"), function(req, res) {
     // Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
@@ -110,8 +109,7 @@ module.exports = function(app) {
 
 
 
-};
-=======
+
   // GET route for getting all of the todos
   app.get("/user/:id", function(req, res) {
     // findAll returns all entries for a table when used with no options
@@ -135,4 +133,3 @@ module.exports = function(app) {
 })
 
  };
->>>>>>> c3825f9ab8013a076ae73c30e5ae1e223205d281
