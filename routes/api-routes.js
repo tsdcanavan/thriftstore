@@ -11,17 +11,25 @@ var db = require("../models");
 module.exports = function(app) {
 
   // GET route for getting all of the todos
-  app.get("/api/user/:id", function(req, res) {
+  app.get("/user/:id", function(req, res) {
     // findAll returns all entries for a table when used with no options
-    db.Merchtbl.findAll({}, {
+    db.merchtbl.findAll({
       where: {
-        userid: req.param.id
-      }
-    }).then(function(dbMerchtbl) {
-      // We have access to the list as an argument inside of the callback function
-      console.log(dbMerchtbl);
-      res.json("userpage", dbMerchtbl);
-    });
+        userid: req.params.id
+    },
+    include: [{
+      model: db.usertbl,
+      required: false
+    }]
+  }).then(function(dbMerchtbl) {
+    console.log("user id from address bar " +req.params.id);
+    console.log("\n\n==========")
+    console.log(dbMerchtbl[0].usertbl.username);
+    console.log("==========\n\n")
+    console.log(dbMerchtbl)
+    res.render('userpage', {merch:dbMerchtbl});
+  })
+  
+})
 
-  });
-}
+ };
