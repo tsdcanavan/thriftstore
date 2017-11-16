@@ -16,10 +16,13 @@ module.exports = function(app) {
   app.get("/login", function(req, res) {
     // If the user already has an account send them to the members page
     console.log(req.user);
+    
     if (req.user) {
-      res.json("https://google.com");
-    }
+      res.json("/order");
+    }else{
     res.sendFile(path.join(__dirname, "../public/auth.html"));
+    }
+    
   });
 
   app.get("/api/signup", function(req, res) {
@@ -35,8 +38,12 @@ module.exports = function(app) {
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  app.get("/:id", isAuthenticated, function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/members.html"));
+  app.get("/checkout", isAuthenticated, function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/checkout.html"));
+  });
+
+  app.get("/order", isAuthenticated, function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/order.html"));
   });
 
 };
