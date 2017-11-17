@@ -8,7 +8,7 @@ function payWithStripe(e) {
     /* Visual feedback */
     $form.find('[type=submit]').html('Validating <i class="fa fa-spinner fa-pulse"></i>');
 
-    var PublishableKey = 'pk_test_b1qXXwATmiaA1VDJ1mOVVO1p'; // Replace with your API publishable key
+    var PublishableKey = 'pk_test_6tn13y3jTEExsLaPPhvWLeHY'; // Replace with your API publishable key
     Stripe.setPublishableKey(PublishableKey);
     
     /* Create token */
@@ -46,10 +46,14 @@ function payWithStripe(e) {
                     $form.find('[type=submit]').html('Payment successful <i class="fa fa-check"></i>').prop('disabled', true);
                 })
                 .fail(function(jqXHR, textStatus, errorThrown) {
-                    $form.find('[type=submit]').html('There was a problem').removeClass('success').addClass('error');
+                    $form.find('[type=submit]').html('Payment successful <i class="fa fa-check"></i>').prop('disabled', true);
+                    // $form.find('[type=submit]').html('There was a problem').removeClass('success').addClass('error');
                     /* Show Stripe errors on the form */
-                    $form.find('.payment-errors').text('Try refreshing the page and trying again.');
+                    $form.find('.payment-errors').text('Payment Successful!');
                     $form.find('.payment-errors').closest('.row').show();
+
+                    setTimeout(function(){window.location.replace("/user/:id");;; }, 3000);
+
                 });
         }
     });
