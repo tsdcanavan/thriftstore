@@ -7,6 +7,7 @@
 // Requiring our models
 var db = require("../models");
 var passport = require("../config/passport");
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 // Routes =============================================================
 module.exports = function(app) {
