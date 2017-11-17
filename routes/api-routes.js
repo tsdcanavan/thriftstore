@@ -16,10 +16,10 @@ module.exports = function(app) {
     // Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
     // So we're sending the user back the route to the members page because the redirect will happen on the front end
     // They won't get this or even be able to access this page if they aren't authed
-    console.log(req.body)
+    
     
     //edit the members route to 
-    res.json("/order");
+    res.json("/user/:id");
   });
 
   // GET route for getting all of the posts
@@ -31,7 +31,7 @@ module.exports = function(app) {
     // Here we add an "include" property to our options in our findAll query
     // We set the value to an array of the models we want to include in a left outer join
     // In this case, just db.Author
-    db.Post.findAll({
+    db.merchtbl.findAll({
       where: query,
       include: [db.Credit]
     }).then(function(dbPost) {
@@ -44,7 +44,7 @@ module.exports = function(app) {
     // Here we add an "include" property to our options in our findOne query
     // We set the value to an array of the models we want to include in a left outer join
     // In this case, just db.Author
-    db.Post.findOne({
+    db.merchtbl.findOne({
       where: {
         id: req.params.id
       },
@@ -56,14 +56,16 @@ module.exports = function(app) {
 
   // POST route for saving a new post
   app.post("/api/merch", function(req, res) {
-    db.Post.create(req.body).then(function(dbPost) {
+    db.merchtbl.create(req.body).then(function(dbPost) {
       res.json(dbPost);
+    }).then(function(){
+      res.json("/user/:id");
     });
   });
 
   // DELETE route for deleting posts
   app.delete("/api/merch/:id", function(req, res) {
-    db.Post.destroy({
+    db.merchtbl.destroy({
       where: {
         id: req.params.id
       }
@@ -74,7 +76,7 @@ module.exports = function(app) {
 
   // PUT route for updating posts
   app.put("/api/merch", function(req, res) {
-    db.Post.update(
+    db.merchtbl.update(
       req.body,
       {
         where: {
@@ -85,9 +87,9 @@ module.exports = function(app) {
       });
   });
 
-
+//Signup Rouote
   app.post("/api/signup", function(req, res) {
-    console.log(req.body)
+    
     db.usertbl.create({
       email: req.body.email,
       password: req.body.password,
@@ -97,9 +99,10 @@ module.exports = function(app) {
       city: req.body.city,
       state: req.body.state,
       zip: req.body.zip
-    }).then(function() {
+    }).then(isAuthenticated, function() {
       // res.json(true)
-      res.json("https://google.com");
+      alert("Registration Successful. Please Login if you are not automatically redirected");
+      res.json("/user/:id");
     }).catch(function(err) {
       console.log(err);
       res.json(err);
@@ -121,7 +124,8 @@ module.exports = function(app) {
       model: db.usertbl,
       required: false
     }]
-  }).then(function(dbMerchtbl) {
+  }).then(isAuthenticated, function(dbMerchtbl) {
+    res.sendFile(path.join(__dirname, "../public/userpage.html"));
     console.log("user id from address bar " +req.params.id);
     console.log("\n\n==========")
     console.log(dbMerchtbl[0].usertbl.username);

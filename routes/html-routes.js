@@ -15,20 +15,20 @@ module.exports = function(app) {
 
   app.get("/login", function(req, res) {
     // If the user already has an account send them to the members page
-    console.log(req.user);
-    
+       
     if (req.user) {
-      res.json("/order");
+      res.json("/user/:id");
     }else{
     res.sendFile(path.join(__dirname, "../public/auth.html"));
     }
     
   });
 
+
   app.get("/api/signup", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.redirect("/:id");
+      res.redirect("/user/:id");
     }
     res.sendFile(path.join(__dirname, "../public/auth.html"));
   });
@@ -42,8 +42,20 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/checkout.html"));
   });
 
+//getting the oder page
   app.get("/order", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/order.html"));
+  });
+
+
+  //user's page
+  // app.get("/user/:id", isAuthenticated, function(req, res) {
+  //   res.sendFile(path.join(__dirname, "../public/userpage.html"));
+  // });
+
+  //adding a new merch
+  app.get("/api/merch", function(){
+    res.sendFile(path.join(__dirname, "../public/addupdate.html"));
   });
 
 };
