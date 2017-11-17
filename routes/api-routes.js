@@ -17,8 +17,7 @@ module.exports = function(app) {
     // Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
     // So we're sending the user back the route to the members page because the redirect will happen on the front end
     // They won't get this or even be able to access this page if they aren't authed
-    
-    
+    console.log(res.body);
     //edit the members route to 
     res.json("/user/:id");
   });
@@ -114,7 +113,7 @@ module.exports = function(app) {
 
 
 
-  // GET route for getting all of the todos
+  // GET route for getting all of the merch
   app.get("/user/:id", function(req, res) {
     // findAll returns all entries for a table when used with no options
     db.merchtbl.findAll({
@@ -126,7 +125,7 @@ module.exports = function(app) {
       required: false
     }]
   }).then(isAuthenticated, function(dbMerchtbl) {
-    res.sendFile(path.join(__dirname, "../public/userpage.html"));
+    // res.sendFile(path.join(__dirname, "../public/userpage.html"));
     console.log("user id from address bar " +req.params.id);
     console.log("\n\n==========")
     console.log(dbMerchtbl[0].usertbl.username);
