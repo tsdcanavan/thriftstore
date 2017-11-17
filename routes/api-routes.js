@@ -134,6 +134,9 @@ module.exports = function(app) {
     res.render('userpage', {merch:dbMerchtbl});
   })
   
-})
+});
 
+// app.del("merch/:id", function(req,res) {
+//   db.merchtbl.destroy()
+// });
  };
