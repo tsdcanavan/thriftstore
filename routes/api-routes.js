@@ -22,14 +22,17 @@ module.exports = function(app) {
       required: false
     }]
   }).then(function(dbMerchtbl) {
-    console.log("user id from address bar " +req.params.id);
-    console.log("\n\n==========")
-    console.log(dbMerchtbl[0].usertbl.username);
-    console.log("==========\n\n")
-    console.log(dbMerchtbl)
+    // console.log("user id from address bar " +req.params.id);
+    // console.log("\n\n==========")
+    // console.log(dbMerchtbl[0].usertbl.username);
+    // console.log("==========\n\n")
+    // console.log(dbMerchtbl)
     res.render('userpage', {merch:dbMerchtbl});
   })
   
-})
+});
 
+// app.del("merch/:id", function(req,res) {
+//   db.merchtbl.destroy()
+// });
  };
