@@ -7,6 +7,6 @@ $(loginLink).on('click', function() {
   console.log('login clicked');
 });
 
-$(regLink).on('click', function() {
-  console.log('sign up clicked');
-})
+// $(regLink).on('click', function() {
+//   console.log('sign up clicked');
+// })
