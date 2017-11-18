@@ -99,7 +99,7 @@ module.exports = function(app) {
       city: req.body.city,
       state: req.body.state,
       zip: req.body.zip
-    }).then(isAuthenticated, function() {
+    }).then( function() {
       // res.json(true)
       alert("Registration Successful. Please Login if you are not automatically redirected");
       res.json("/user/:id");
