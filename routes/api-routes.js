@@ -99,7 +99,7 @@ module.exports = function(app) {
       city: req.body.city,
       state: req.body.state,
       zip: req.body.zip
-    }).then( function() {
+    }).then(isAuthenticated, function() {
       // res.json(true)
       alert("Registration Successful. Please Login if you are not automatically redirected");
       res.json("/user/:id");
@@ -124,7 +124,7 @@ module.exports = function(app) {
       model: db.usertbl,
       required: false
     }]
-  }).then(isAuthenticated, function(dbMerchtbl) {
+  }).then( function(dbMerchtbl) {
     // res.sendFile(path.join(__dirname, "../public/userpage.html"));
     console.log("user id from address bar " +req.params.id);
     console.log("\n\n==========")
