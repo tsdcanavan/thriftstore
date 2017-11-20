@@ -5,22 +5,25 @@ var db = require("../models");
 module.exports = function(app) {
 
 
-  app.get("/api/new", function(req, res) {
-    var merch = {};
-    if (req.merch.body.userid) {
-      merch.userId = req.merch.userid;
-    }
+  app.get("/add", function(req, res) {
+
+    res.sendFile(path.join(__dirname, "../public/addupdate.html") );
+    // var merch = {};
+    // if (req.merch.body.userid) {
+    //   merch.userId = req.merch.userid;
+    // }
     
-    db.Post.findOne({
-      include: [db.Merchtbls],
-      where: merch
-    }).then(function(dbMerch) {
-      res.json(dbMerch);
-    });
+    // db.Post.findOne({
+    //   include: [db.Merchtbls],
+    //   where: merch
+    // }).then(function(dbMerch) {
+    //   res.json(dbMerch);
+    // });
+   
   });
 
   
-  app.get("/api/update/:id", function(req, res) {
+  app.get("/update", function(req, res) {
     
     db.Post.findOne({
       where: {
