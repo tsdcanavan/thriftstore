@@ -42,7 +42,7 @@ app.set("view engine", "handlebars");
 // =============================================================
 require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
-// require("./routes/html-routes.js")(app);
+require("./routes/addupdate-routes.js")(app);
 // require("./routes/author-api-routes.js")(app);
 // require("./routes/post-api-routes.js")(app);
 

@@ -8,9 +8,12 @@
             <div class="col-md-4"></div>
             <div class='col-md-4 '>
                 <div class="login grid-x tc-right">
+                    <div class='row'>
+                    <h6><a href="/add" id="addLink" data-toggle="examleModal1">Add</a></h6>
                     <h6>
                         <a href="#" id="loginLink" data-toggle="exampleModal1" >{{merch.0.usertbl.username}}</a>
                     </h6>
+                    </div>
                 </div>
             </div>
         </div>
@@ -24,7 +27,7 @@
       <div class="card-body">
         <h4 class="card-title" style="text-align: top;">{{title}}</h4>
         <h6 class="card-text ">{{description}}</h6>
-        <a href="#" class="btn btn-primary">Update item</a>
+        <a href="/update" class="btn btn-primary">Update item</a>
         <a href="#" class="btn btn-primary">Delete item</a>
       </div>
     </div>

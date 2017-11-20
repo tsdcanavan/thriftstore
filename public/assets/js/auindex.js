@@ -172,7 +172,7 @@ $(document).ready(function() {
       return;
     }
     // If we have an email and password, run the signUpUser function
-    signUpUser(user2Data.email, user2Data.password, user2Data.password, user2Data.address1, user2Data.address2, user2Data.city, user2Data.state, user2Data.zip);
+    signUpUser(user2Data.email, user2Data.username, user2Data.password, user2Data.address1, user2Data.address2, user2Data.city, user2Data.state, user2Data.zip);
 
     nameInput.val("");
     email2Input.val("");
